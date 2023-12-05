@@ -34,6 +34,8 @@ It gives the functionality to add comments and express user's likes on favorite 
   <ul>
     <li><a href="https://www.ruby-lang.org/es/">Ruby🌷</a></li>
   </ul>
+  </details>
+  <details>
   <summary>Rails🌷</summary>
   <ul>
     <li><a href="https://rubyonrails.org/">Rails🌷</a></li>
