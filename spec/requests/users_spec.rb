@@ -20,6 +20,10 @@ RSpec.describe 'User Management', type: :request do
     it 'displays a list of users' do
       expect(response.body).to include('<h1>A list of users</h1>')
     end
+
+    it 'renders the index template' do
+      expect(response).to render_template(:index)
+    end
   end
 
   context 'User Details' do
