@@ -41,6 +41,12 @@ It gives the functionality to add comments and express user's likes on favorite 
     <li><a href="https://rubyonrails.org/">Rails🌷</a></li>
   </ul>
 </details>
+<details>
+  <summary>Rails Linters🌷</summary>
+  <ul>
+    <li><a href="https://github.com/microverseinc/linters-config/tree/master/ror">Rails Linters🌷</a></li>
+  </ul>
+</details>
 
 ### 🌸🌷 Key Features <a name="key-features"></a>
 - **[Write blog post]**
@@ -80,6 +86,7 @@ Clone this repository to your desired folder:
 ## 🔭🌷 Future Features <a name="future-features"></a>
 
 - [ ] **[Add more functionalities to the interface design.]**
+- [ ] **[Add the functionality to authenticate user]**
   
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
