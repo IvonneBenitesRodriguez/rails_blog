@@ -13,11 +13,12 @@ class PostsController < ApplicationController
   def create
     @post = @user.posts.new(post_params)
 
-    if @post.save
-      redirect_to user_post_path(@user, @post), notice:
-      'Post created successfully!'
-    else
-      render 'new', alert: 'Unable to create post.'
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to user_post_path(@user, @post), notice: 'Post was succesfully created.' }
+      else
+        format.html { render :new }
+      end
     end
   end
 
