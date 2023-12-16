@@ -2,15 +2,24 @@ class LikesController < ApplicationController
   before_action :set_post, only: [:create]
 
   def create
+    Rails.logger.debug("Params: #{params.inspect}")
     @user = User.find(params[:user_id])
-    @like = Like.new(user: current_user, post: @post)
+    @like = @user.likes.new(post: @post)
 
-    if @like.save
-      @post.update_columns(likes_counter:
-      @post.likes_counter + 1)
+    begin
+      ActiveRecord::Base.transaction do
+        @like.save!
 
-      redirect_to user_post_path(@user, @post)
-    else
+        @post.likes_counter ||= 0
+
+        @post.likes_counter = @post.likes.count
+
+        @post.save!
+      end
+
+      redirect_to user_post_path(@user, @post), notice: 'Post was successfully liked'
+    rescue ActiveRecord::RecordInvalid => e
+      Rails.logger.error("Error creating like: #{e.message}")
       redirect_to user_post_path(@user, @post), alert:
       'Unable to create like.'
     end
