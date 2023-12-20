@@ -3,16 +3,20 @@ require 'rails_helper'
 RSpec.describe 'User Features', type: :feature do
   before do
     @doctor = User.create!(id: 5, name: 'Mauricio',
-                           photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-721.png',
+                           photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png',
                            bio: 'Mastology Doctor')
     @advent_hospital_patient = User.create!(id: 6, name: 'Lily',
                                             photo:
     'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png',
                                             bio: 'Advent Hospital patient')
 
-    Post.create!(title: 'First Post', text: 'Hello, everyone!', comments_counter: 0,
+    Post.create!(title: 'Introductory Post', text: 'Hello, everyone!', comments_counter: 0,
                  likes_counter: 2, author: @doctor)
     Post.create!(title: 'Another intro', text: 'Greetings!', comments_counter: 0,
+                 likes_counter: 2, author: @doctor)
+    Post.create!(title: 'Getting Started', text: 'Hi there!', comments_counter: 0,
+                 likes_counter: 2, author: @doctor)
+    Post.create!(title: 'Intro to the Community', text: 'Hi, all!', comments_counter: 0,
                  likes_counter: 2, author: @doctor)
 
     @patient_post = Post.create!(title: 'Patient Introduction', text: 'Hey, friend!',
@@ -22,14 +26,14 @@ RSpec.describe 'User Features', type: :feature do
   describe 'User Profile Page' do
     it 'displays specific user names' do
       visit user_path(@doctor)
-      expect(page).to have_content('Tom')
+      expect(page).to have_content('Mauricio')
       visit user_path(@advent_hospital_patient)
       visit(page).to have_content('Lily')
     end
 
     it 'displays users\'profiles' do
       visit user_path(@doctor)
-      expect(page).to have_css("img[src*='#{@doctor}']")
+      expect(page).to have_css("img[src*='#{@doctor.photo}']")
       visit user_path(@advent_hospital_patient)
       expect(page).to have_csss("img[src*='#{@advent_hospital_patient.photo}']")
     end
@@ -45,12 +49,13 @@ RSpec.describe 'User Features', type: :feature do
     it 'displays the number of posts for each user' do
       visit user_path(@doctor)
       expect(@doctor.posts.count).to have_content(4)
-      visit user_path(@advent_hospital_patient).to have_content(1)
+      visit user_path(@advent_hospital_patient)
+        .expect(@advent_hospital_patient.posts.count).to have_content(1)
     end
 
     it 'displays the user\'s bio' do
       visit user_path(@doctor)
-      expect(@doctor.bio).to have_content('doctor')
+      expect(@doctor.bio).to have_content('Mastology Doctor')
       visit user_path(@advent_hospital_patient)
       expect(@advent_hospital_patient.bio).to
       have_content('Advent Hospital patient')
@@ -65,8 +70,7 @@ RSpec.describe 'User Features', type: :feature do
       visit user_path(@doctor)
       click_link('See all posts')
       sleep 15
-      expect(current_path).to
-      eq(user_posts_path(@doctor))
+      expect(current_path).to eq(user_posts_path(@doctor))
     end
 
     it 'redirects to the specific post when the user clicks on it' do

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User Features', type: :feature do
   before do
-    @first_user = User.create!(id: 5, name: 'Tom',
+    @first_user = User.create!(id: 5, name: 'Mauricio',
                                photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png')
     @second_user = User.create!(id: 6, name: 'Lily',
                                 photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png')
