@@ -23,7 +23,7 @@ class: 'button' %>
         <span>Comments: <%= post.comments_counter %></span>
         <span>Likes: <%= post.likes_counter %></span>
       </div>
-  </div>
+  
   <div class="user-comments">
         <div class="comments">
           <% if post.comments.any? %>
@@ -37,5 +37,10 @@ class: 'button' %>
           <% end %>
         </div>
       </div>
+      <div>
   <% end %>
+
+<div class="pagination-button">
+      <%= will_paginate @posts %>
+  </div>
 </div>
