@@ -15,7 +15,6 @@ class Post < ApplicationRecord
   def update_likes_counter
     update(likes_counter: likes.count)
   end
-  
 
   private
 

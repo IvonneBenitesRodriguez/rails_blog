@@ -17,13 +17,12 @@ class PostsController < ApplicationController
   def create
     @post = @user.posts.new(post_params)
 
-      if @post.save
-       redirect_to user_post_path(@user, @post), notice: 'Post was succesfully created!'
-      else
-        render 'new', alert: 'Unable to create post.'
-      end
+    if @post.save
+      redirect_to user_post_path(@user, @post), notice: 'Post was succesfully created!'
+    else
+      render 'new', alert: 'Unable to create post.'
     end
-  
+  end
 
   def show
     @comments = @post.comments

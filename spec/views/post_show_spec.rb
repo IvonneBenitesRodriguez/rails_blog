@@ -1,23 +1,23 @@
 # require 'rails_helper'
 
-# RSpec.describe 'User Features', type: :feature do 
+# RSpec.describe 'User Features', type: :feature do
 #     before do
 #         @author_user = User.create!(name: 'Shei', photo:
-#         'https://example.com/shei_profile.png', 
+#         'https://example.com/shei_profile.png',
 #         bio: 'TouristGuide from Peru.')
-#         @commenter_user = User.create!(name: 'Ivonne Benites', 
+#         @commenter_user = User.create!(name: 'Ivonne Benites',
 #         photo: 'https//example.com/ivonne_profile.png',
 #         bio: 'Junior Developer from Peru.')
 
-#         @post = Post.create!(title: 'Love', text: 'Hi, visit my post.', comments_counter: 0, 
+#         @post = Post.create!(title: 'Love', text: 'Hi, visit my post.', comments_counter: 0,
 #         likes_counter: 2, author: @author_user)
-#         @comment = Comment.create(post: @post, user: 
+#         @comment = Comment.create(post: @post, user:
 #         @commenter_user, text: 'My wonderful comment.')
 #         @like = Like.create(post: @post, user: @commenter_user)
 #     end
 
 #     describe 'User Profile Page' do
-#         it "displays author's name" do 
+#         it "displays author's name" do
 #             visit user_posts_path(@commenter_user)
 #             expect(page).to have_content(@commenter_user.name)
 #         end
