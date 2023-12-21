@@ -36,9 +36,5 @@ RSpec.describe 'User Management', type: :request do
     it 'renders the show template' do
       expect(response).to render_template(:show)
     end
-
-    it 'displays user information and posts' do
-      expect(response.body).to include('<h2>Bio</h2>')
-    end
   end
 end

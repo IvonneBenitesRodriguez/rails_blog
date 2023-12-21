@@ -3,7 +3,11 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show]
 
   def index
-    @posts = @user.posts
+    @user = User.find(params[:user_id])
+    @posts = @user.posts.includes(:comments).paginate(page:
+    params[:page], per_page: 3)
+    @post = @posts.first
+    @recent_comment = @post.five_most_recent_comments if @post
   end
 
   def new
@@ -13,12 +17,10 @@ class PostsController < ApplicationController
   def create
     @post = @user.posts.new(post_params)
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to user_post_path(@user, @post), notice: 'Post was succesfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @post.save
+      redirect_to user_post_path(@user, @post), notice: 'Post was succesfully created!'
+    else
+      render 'new', alert: 'Unable to create post.'
     end
   end
 

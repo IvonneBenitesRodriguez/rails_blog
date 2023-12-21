@@ -12,6 +12,7 @@
   - [💻 Getting Started ](#-getting-started-)
     - [🌷Setup](#setup)
   - [🌷 Author ](#-author-)
+  - [👥 Author ](#-author--1)
   - [🔭🌷 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
@@ -47,11 +48,19 @@ It gives the functionality to add comments and express user's likes on favorite 
     <li><a href="https://github.com/microverseinc/linters-config/tree/master/ror">Rails Linters🌷</a></li>
   </ul>
 </details>
+<details>
+  <summary>PostgresSQL🌷</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/download/macosx/">PostgresSQL🌷</a></li>
+  </ul>
+</details>
 
 ### 🌸🌷 Key Features <a name="key-features"></a>
 - **[Write blog post]**
 - **[Comment on blog post]**
 - **[Like blog posts]**
+- **[Integration tests]**
+- **[Views]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -80,6 +89,18 @@ Clone this repository to your desired folder:
 - 🌷Twitter: [@twitterhandle](https://twitter.com/IvonneBenitesR)
 - 🌷LinkedIn: [LinkedIn](https://www.linkedin.com/in/ivonnebenites/)
   
+  👤 *Gilbert  Dushimimana Happi*
+
+- Github: [Gilbert Happi Dushimimana](https://github.com/gilberthappi)
+- X: [Gilbert Happi Dushimimana](https://twitter.com/DushimimanaGil3)
+- LinkedIn: [Gilber Happi Dushimimana](https://www.linkedin.com/in/dushimimana-gilbert-happi-997b2a262/)
+ 
+## 👥 Author <a name="author"></a>
+
+👤 *Md.Rafiduzzaman*
+- GitHub: [@Rafiduzzaman](https://github.com/Rafiduzzaman)
+- Twitter: [@rdzaman](https://twitter.com/rdzaman187468)
+- LinkedIn: [@md-rafiduzzaman-nahin](https://www.linkedin.com/in/md-rafiduzzaman-nahin-7431ab1b4/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
