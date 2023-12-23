@@ -4,8 +4,12 @@ class: 'button' %>
 <div class="users-container">
   <div class="user-card">
     <div class="user-photo">
-      <%= image_tag @user.photo, alt: "#{ @user.name }'s photo" %>
-    </div>
+      <% if @user.photo.attached? %>  
+        <%= image_tag @user.photo, alt: "#{ @user.name }'s photo" %>
+    <% else %>
+      <%= image_tag 'default_image.png', alt: 'Default Photo' %>
+      <% end %>
+    </div>  
     <div class="user-details">
       <%= link_to @user.name, user_path(@user) %>
       <p>Number of posts: <%= @user.posts_counter %></p>
@@ -17,7 +21,7 @@ class: 'button' %>
 
   <% @posts.each do |post| %>
     <div class="post">
-      <h3><%= link_to post.title, user_post_path(@user, post) %></h3>
+      <h3><%= link_to post.title, user_post_path(post.author, post) %></h3>
       <p><%= post.text %></p>
       <div class="cmt-like">
         <span>Comments: <%= post.comments_counter %></span>

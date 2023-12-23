@@ -1,9 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_post, except: [:new]
-
-  def new
-    @comment = Comment.new
-  end
+  before_action :set_post
 
   def create
     @comment =

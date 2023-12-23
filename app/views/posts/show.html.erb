@@ -1,24 +1,31 @@
 <div class="users-container">
   <div class="user-card">
     <div class="user-photo">
+      <% if @user && @user.photo && @user.photo.attached? %>
       <%= image_tag @user.photo, alt: "#{ @user.name }'s 
       photo" %>
+      <%= image_tag @user.photo, alt: "#{ @user.name }'s photo" %>
+      <% else %>
+        <%= image_tag 'default_image.png', alt: 'Default Photo' %>
+        <% end %>
     </div>
     <div class="user-details">
+      <% if @user %>
       <%= link_to @user.name, user_path(@user) %>
-      <p>Number of posts: <%= @user.posts_counter %></p>
+        <p>Number of posts: <%= @user.posts_counter %></p>
+      <% end %>
     </div>
    </div>
  </div>
  
  <div class="user-bio">
     <h2>Bio</h2>
-    <p><%= @user.bio %></p>
+    <p><%= @user.bio if @user %></p>
   </div>
 
 <div class="user-posts">
   <div class="post">
-    <h3><%= link_to @post.title, user_post_path(@user, @post)
+    <h3><%= link_to @post.title, user_post_path(@post.author, @post)
     %></h3>
     <p><%= @post.text %></p>
     <div class="cmt-like">
@@ -28,8 +35,8 @@
       </span>
     </div>
     
-    <%= form_with(model: [@user, @post.likes.build], url:
-    like_post_user_post_path(@user, @post), method: :post,
+    <%= form_with(model: [@post.author, @post.likes.build], url:
+    like_post_user_post_path(@post.author, @post), method: :post,
     local: true) do |form| %>
       <%= form.submit "Like", class: 'button' %>
       <% end %>

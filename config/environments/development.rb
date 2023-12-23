@@ -6,6 +6,10 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
+  
+  #Reload code on every request in development (default:true)
+  config.cache_classes = false
+
   config.enable_reloading = true
 
   # Do not eager load code on boot.
@@ -37,9 +41,9 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  config.action_mailer.perform_caching = false
+  config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -73,4 +77,19 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  config.consider_all_requests_local = true
+
+  config.eager_load = false
+
+  config.server_timing = true
+
+  config.assets.quiet = true
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method =  :letter_opener
+  config.action_mailer.perform_deliveries = true
+  config.action_controller.raise_on_missing_callback_actions = true
+
 end
